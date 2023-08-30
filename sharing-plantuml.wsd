@@ -4,27 +4,30 @@ class "User" as user {
     -String nickname 
     -String password 
     +UUID avatarId
-    +String name
-}
-class "ProfileUser" as profile {
-    +User user
+    +String displayName
     +String description
-    +Review review
-    +Exercise exercise
-    +Skill learn 
-    +Skill teach  
+    +ArrayList<Skill> learn 
+    +ArrayList<Skill> teach  
     +Time timezone
-
 }
-note left of profile::exercise
-"Это занятия, которые пользователь ведет 
-или по которым учится"
-end note 
-note left of profile::learn
-"Это навыки, которые указывает
-пользователь хочу научиться\могу научить"
-end note
+' class "ProfileUser" as profile {
+'     +User user
+'     +String description
+'     +ArrayList<Skill> learn 
+'     +ArrayList<Skill> teach  
+'     +Time timezone
+
+' }
+' note left of profile::exercise
+' "Это занятия, которые пользователь ведет 
+' или по которым учится"
+' end note 
+' note left of profile::learn
+' "Это навыки, которые указывает
+' пользователь хочу научиться\могу научить"
+' end note
 class "Review" as review {
+    -UUID id 
     +User user 
     +String description 
     +Exercise exercise 
@@ -34,7 +37,7 @@ class "Exercise" as exercise {
     +String name 
     +String description 
     +User owner
-    +ArrayList<User> subscribers
+    +User subscriber
 }
 note left of exercise::subscribers
 "Пользователи которые 
@@ -45,15 +48,14 @@ class "Skill" as skill {
     +String name
 }
 
-class "Time" as time {
+'class "Time" as time {
+'}
 
-}
-
-user --> profile
-profile --> skill  
-profile --> exercise 
-profile --> review
-profile o-- time
+' user --> profile
+user --> skill  
+user --> exercise 
+user --> review
+' profile o-- time
 review --> exercise
-
+ 
 @enduml
