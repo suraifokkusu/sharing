@@ -1,0 +1,59 @@
+@startuml sharing
+class "User" as user {
+    -UUID id 
+    -String nickname 
+    -String password 
+    +UUID avatarId
+    +String name
+}
+class "ProfileUser" as profile {
+    +User user
+    +String description
+    +Review review
+    +Exercise exercise
+    +Skill learn 
+    +Skill teach  
+    +Time timezone
+
+}
+note left of profile::exercise
+"Это занятия, которые пользователь ведет 
+или по которым учится"
+end note 
+note left of profile::learn
+"Это навыки, которые указывает
+пользователь хочу научиться\могу научить"
+end note
+class "Review" as review {
+    +User user 
+    +String description 
+    +Exercise exercise 
+}
+class "Exercise" as exercise {
+    -UUID id 
+    +String name 
+    +String description 
+    +User owner
+    +ArrayList<User> subscribers
+}
+note left of exercise::subscribers
+"Пользователи которые 
+записаны на это занятие"
+end note
+class "Skill" as skill {
+    -UUID id 
+    +String name
+}
+
+class "Time" as time {
+
+}
+
+user --> profile
+profile --> skill  
+profile --> exercise 
+profile --> review
+profile o-- time
+review --> exercise
+
+@enduml
