@@ -3,7 +3,8 @@
 class "User" as user {
     -UUID id 
     -String nickname 
-    -String password 
+    -String password
+    +BigDecimal moneyOnWallet 
     +UUID avatarId
     +String displayName
     +String description
@@ -14,32 +15,58 @@ class "User" as user {
 
 class "Review" as review {
     -UUID id 
-    +User user 
+    +User userId
+    +Exercise exerciseId 
     +String description 
-    +Exercise exercise 
 }
 class "Exercise" as exercise {
-    -UUID id 
-    +String name 
+    -UUID id
+    +String name
+    +BigDecimal price
     +String description 
-    +User teacher
-    +User student
+    +User teacherId
+    +User studentId
+    +ArrayList<Review> reviewId  
     +Time timezone
 }
 
 class "Skill" as skill {
-    -UUID id 
+    -UUID id
     +String name
+} 
+
+class "PurchaseOrderExercise" as purchaseOrderExercise {
+    -UUID id
+    +Exercise id
+    +Bool acceptFromTeacher
+
 }
+
+user --> skill  
+user --> exercise 
+user --> review
+review --> exercise
+exercise --> purchaseOrderExercise   
+
+
+' -------------------------------------
+                    ' NOTES 
 
 note left of exercise::student
 "Пользователи которые 
 записаны на это занятие"
 end note
 
-user --> skill  
-user --> exercise 
-user --> review
-review --> exercise
- 
-@enduml
+note left of user::moneyOnWallet
+"Выбрал данный тип данных для
+представления десятичных значений
+валюты платформы"
+end note
+
+note left of purchaseOrderExercise
+"Добавил покупку занятия,
+плюс здесь же идет подтверждение от
+"учителя" на то, что он готов
+провести занятие"
+end note
+' --------------------------------------- 
