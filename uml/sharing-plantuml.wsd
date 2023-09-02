@@ -4,7 +4,7 @@ class "User" as user {
     -UUID id 
     -String nickname 
     -String password
-    +BigDecimal moneyOnWallet 
+    +BigDecimal balanceOnWallet 
     +UUID avatarId
     +String displayName
     +String description
@@ -57,7 +57,7 @@ note left of exercise::student
 записаны на это занятие"
 end note
 
-note left of user::moneyOnWallet
+note left of user::balanceOnWallet
 "Выбрал данный тип данных для
 представления десятичных значений
 валюты платформы"
