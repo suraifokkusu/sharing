@@ -36,11 +36,11 @@ class "Skill" as skill {
     +String name
 } 
 
+exercise --> review
+exercise -->  user 
+user --> review 
+user --> skill 
 
-user --> skill  
-user --> exercise 
-user --> review
-review --> exercise
 
 
 ' -------------------------------------
