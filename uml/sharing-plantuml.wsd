@@ -48,7 +48,7 @@ class "Exercise" as exercise {
     +LocalDateTime dateOfExercise
 
     +enum ExerciseStatus 
-    +ArrayList<exercise> createNewExercise(Bool teacherApprove)
+    +ArrayList<exercise> createNewExercise(enum ExerciseStatus)
 }
 
 class "Skill" as skill {
