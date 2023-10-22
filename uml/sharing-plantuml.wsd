@@ -7,8 +7,9 @@ class "Announcement" as announcement {
     +UUID imageId 
     +Long price 
     +String description
-    +ArrayList<request> requestList
     +User teacher
+
+    +ArrayList<exercise> exerciseList
     +ArrayList<Review> reviewId
     +enum AnnouncementStatus 
 } 
@@ -44,11 +45,9 @@ class "Exercise" as exercise {
     +String description 
     +User teacher
     +User student
-    +Date dateOfExercise
+    +LocalDateTime dateOfExercise
 
     +enum ExerciseStatus 
-    +Bool teacherApprove
-    +ArrayList<exercise> exerciseList
     +ArrayList<exercise> createNewExercise(Bool teacherApprove)
 }
 
