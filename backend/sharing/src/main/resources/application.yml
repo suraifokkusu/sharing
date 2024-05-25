@@ -1,0 +1,73 @@
+spring:
+  application:
+    name: Sharing
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sharing-db
+    username: postgres
+    password: 1111
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 836103782394-kv9i3c5ccrmogghih4qsdav6stqhj7r9.apps.googleusercontent.com #YOUR_GOOGLE_CLIENT_ID
+            client-secret: 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 #YOUR_GOOGLE_CLIENT_SECRET
+            scope: profile, email
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            client-name: Google
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/auth
+            token-uri: https://accounts.google.com/o/oauth2/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+
+telegram:
+  bot:
+    username: SHARING AUTHENTICATION
+    token: 6887257254:AAHJdQwR0fYKGDbqndE2nVnUMmCvJjnH19w
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+zoom:
+  api:
+    client-id: UIHIogMdQdWoxyrjGtfwlw #YOUR_ZOOM_CLIENT_ID
+    client-secret: j5OvdhVLszTvnUgJIzLezC4ES6318O7z #YOUR_ZOOM_CLIENT_SECRET
+    redirect-uri: "{baseUrl}/api/zoom/callback"
+  oauth2:
+    token-uri: https://zoom.us/oauth/token
+#    authorization-uri: https://zoom.us/oauth/authorize
+    user-info-uri: https://api.zoom.us/v2/users/me
+
+logging:
+  level:
+    root: INFO
+    com.example.sharing: DEBUG
+  file:
+    name: application.log
+
+spring-hoc:
+  cors:
+    allow-credentials: true
+    allowed-origins:
+      - "https://my-frontend-application.com"
+      - "https://jpomykala.com"
+    allowed-methods:
+      - GET
+      - POST
+      - PATCH
+      - DELETE
+server:
+  port: 8080
+baseUrl: https://d7bf-85-15-111-133.ngrok-free.app
+

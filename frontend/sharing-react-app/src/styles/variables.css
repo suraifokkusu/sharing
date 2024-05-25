@@ -1,0 +1,12 @@
+/* src/styles/variables.css */
+:root {
+    --oxford-blue: #00072dff;
+    --penn-blue: #001c55ff;
+    --royal-blue-traditional: #0a2472ff;
+    --bice-blue: #0e6ba8ff;
+    --non-photo-blue: #a6e1faff;
+  
+    --font-primary: 'Open Sans', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+  }
+  

@@ -1,0 +1,74 @@
+-- Создание таблицы Пользователей
+CREATE TABLE Users (
+    user_id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    telegram_id VARCHAR(100) NOT NULL,
+    profile_text TEXT,
+    rating DECIMAL(3,2),
+    currency_balance DECIMAL(10,2)
+);
+
+-- Создание таблицы Объявлений
+CREATE TABLE Advertisements (
+    ad_id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    ad_type VARCHAR(50) NOT NULL,  -- 'offer' или 'request'
+    status VARCHAR(50) NOT NULL,  -- 'active', 'completed', 'cancelled'
+    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+);
+
+-- Создание таблицы Сессий
+CREATE TABLE Sessions (
+    session_id SERIAL PRIMARY KEY,
+    ad_id INT NOT NULL,
+    session_date TIMESTAMP NOT NULL,
+    platform VARCHAR(100) NOT NULL,
+    FOREIGN KEY (ad_id) REFERENCES Advertisements(ad_id)
+);
+
+-- Создание таблицы Транзакций
+CREATE TABLE Transactions (
+    transaction_id SERIAL PRIMARY KEY,
+    sender_id INT NOT NULL,
+    receiver_id INT NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+    transaction_date TIMESTAMP NOT NULL,
+    FOREIGN KEY (sender_id) REFERENCES Users(user_id),
+    FOREIGN KEY (receiver_id) REFERENCES Users(user_id)
+);
+
+-- Создание таблицы Отзывов
+CREATE TABLE Reviews (
+    review_id SERIAL PRIMARY KEY,
+    session_id INT NOT NULL,
+    author_id INT NOT NULL,
+    rating INT NOT NULL,
+    comment TEXT,
+    FOREIGN KEY (session_id) REFERENCES Sessions(session_id),
+    FOREIGN KEY (author_id) REFERENCES Users(user_id)
+);
+-- Создание таблицы Навыков
+CREATE TABLE Skills (
+    skill_id SERIAL PRIMARY KEY,
+    skill_name VARCHAR(100) NOT NULL UNIQUE
+);
+-- Создание таблицы для связи пользователей и навыков
+CREATE TABLE User_Skills (
+    user_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (skill_id) REFERENCES Skills(skill_id),
+    PRIMARY KEY (user_id, skill_id)
+);
+
+-- Создание таблицы для связи объявлений и навыков
+CREATE TABLE Ad_Skills (
+    ad_id INT NOT NULL,
+    skill_id INT NOT NULL,
+    FOREIGN KEY (ad_id) REFERENCES Advertisements(ad_id),
+    FOREIGN KEY (skill_id) REFERENCES Skills(skill_id),
+    PRIMARY KEY (ad_id, skill_id)
+);

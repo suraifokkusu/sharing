@@ -1,0 +1,8 @@
+{
+  "skill": [
+    {
+      "id": "regex:.+",
+      "name": "some name"
+    }
+  ]
+}

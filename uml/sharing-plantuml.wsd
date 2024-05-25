@@ -1,0 +1,98 @@
+@startuml sharing
+
+
+class "Announcement" as announcement {
+    -UUID id 
+    +String title 
+    +UUID imageId 
+    +Long price 
+    +String description
+    +User teacher
+
+    +ArrayList<exercise> exerciseList
+    +ArrayList<Review> reviewId
+    +enum AnnouncementStatus 
+} 
+' class "RequestForLesson" as request {
+'     -UUID id 
+'     +Bool teacherApprove
+'     +User student
+'     +ArrayList<exercise> exerciseList
+'     +ArrayList<exercise> createNewExercise(Bool teacherApprove)
+' }
+class "User" as user {
+    -UUID id 
+    -String nickname 
+    -String password
+    +Strig phoneNumber
+    +Long balanceOnWallet 
+    +UUID avatarId
+    +String displayName
+    +String description
+    +ArrayList<Skill> learn 
+    +ArrayList<Skill> teach  
+    }
+
+class "Review" as review {
+    -UUID id 
+    +User userId
+    +Exercise exerciseId 
+    +String description 
+}
+class "Exercise" as exercise {
+    -UUID id
+    +String title
+    +String description 
+    +User teacher
+    +User student
+    +LocalDateTime dateOfExercise
+
+    +enum ExerciseStatus 
+    +ArrayList<exercise> createNewExercise(enum ExerciseStatus)
+}
+
+class "Skill" as skill {
+    -UUID id
+    +String name
+} 
+
+' -------------------------------------
+                    ' RELATIONSHIP 
+skill "*.." - "..1" user
+user "*.." --> "..1" announcement
+user --> review
+review "0..*" --o "..1" announcement 
+exercise "*.." --* "..1" announcement 
+' announcement "1" ..|> "0..*" request 
+' exercise "1.." --* "..1" request 
+  
+
+
+' -------------------------------------
+                    ' NOTES 
+
+note bottom of exercise
+"Запрос на занятие выступает в роли
+"посредника", если апрув прошел и хватает
+денег на балансе пользователя  (ученика), то занятие 
+создается"
+end note
+
+note right of review
+"Отзыв остается, даже если
+ обьявления уже не существует"
+end note
+
+note right of announcement::AnnouncementStatus
+"HIDDEN, PUBLIC, DELETED"
+end note
+
+note left of exercise::ExerciseStatus
+"REQUEST, APPROVE, COMPLETED"
+end note
+
+note right of exercise
+"Занятие не добавляется в список,
+пока не пройдет апрув"
+end note
+' --------------------------------------- 

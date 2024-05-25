@@ -1,0 +1,81 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "title": "some title",
+  "description": "some description",
+  "announcement": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "title": "some title",
+    "imageId": "00000000-0000-0000-0000-000000000000",
+    "price": 8,
+    "description": "some description",
+    "teacher": {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "nickname": "some nickname",
+      "password": "some password",
+      "displayName": "some displayName",
+      "phone": "some phone",
+      "balanceOnWallet": 8,
+      "avatarId": "00000000-0000-0000-0000-000000000000",
+      "description": "some description",
+      "learn": [
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "name": "some name"
+        }
+      ],
+      "teach": [
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "name": "some name"
+        }
+      ]
+    },
+    "status": "HIDDEN"
+  },
+  "teacher": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "nickname": "some nickname",
+    "password": "some password",
+    "displayName": "some displayName",
+    "phone": "some phone",
+    "balanceOnWallet": 8,
+    "avatarId": "00000000-0000-0000-0000-000000000000",
+    "description": "some description",
+    "learn": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "some name"
+      }
+    ],
+    "teach": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "some name"
+      }
+    ]
+  },
+  "student": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "nickname": "some nickname",
+    "password": "some password",
+    "displayName": "some displayName",
+    "phone": "some phone",
+    "balanceOnWallet": 8,
+    "avatarId": "00000000-0000-0000-0000-000000000000",
+    "description": "some description",
+    "learn": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "some name"
+      }
+    ],
+    "teach": [
+      {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "some name"
+      }
+    ]
+  },
+  "date": "2021-01-01 10:11:12",
+  "status": "REQUEST"
+}

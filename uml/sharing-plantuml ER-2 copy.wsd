@@ -1,0 +1,75 @@
+@startuml
+
+entity "Users" as Users {
+    *user_id : integer <<generated>>
+    --
+    *name : varchar
+    email : varchar
+    *telegram_id : varchar
+    profile_text : text
+    rating : decimal
+    currency_balance : decimal
+}
+
+entity "Skills" as Skills {
+    *skill_id : integer <<generated>>
+    --
+    *skill_name : varchar
+}
+
+entity "Advertisements" as Advertisements {
+    *ad_id : integer <<generated>>
+    --
+    *user_id : integer
+    *category : varchar
+    *description : text
+    *ad_type : varchar
+    *status : varchar
+}
+
+entity "Sessions" as Sessions {
+    *session_id : integer <<generated>>
+    --
+    *ad_id : integer
+    *session_date : timestamp
+    *platform : varchar
+}
+
+entity "Transactions" as Transactions {
+    *transaction_id : integer <<generated>>
+    --
+    *sender_id : integer
+    *receiver_id : integer
+    *amount : decimal
+    *transaction_date : timestamp
+}
+
+entity "Reviews" as Reviews {
+    *review_id : integer <<generated>>
+    --
+    *session_id : integer
+    *author_id : integer
+    *rating : integer
+    comment : text
+}
+
+entity "User_Skills" {
+    user_id : integer
+    skill_id : integer
+}
+
+entity "Ad_Skills" {
+    ad_id : integer
+    skill_id : integer
+}
+
+Users ||--o{ User_Skills
+Skills ||--o{ User_Skills
+Advertisements ||--o{ Sessions
+Users ||--o{ Transactions : "sends"
+Users ||--o{ Transactions : "receives"
+Sessions ||--o{ Reviews
+Advertisements ||--o{ Ad_Skills
+Skills ||--o{ Ad_Skills
+
+@enduml

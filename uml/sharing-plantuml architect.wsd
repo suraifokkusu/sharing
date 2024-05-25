@@ -1,0 +1,32 @@
+@startuml
+
+package "Frontend (React)" {
+  [User Interface] as UI
+  [State Management] as State
+}
+
+package "Backend (Spring Boot)" {
+  [Controllers] as Controllers
+  [Services] as Services
+  [Repositories] as Repositories
+}
+
+database "PostgreSQL" {
+  frame "Database Tables" {
+    [Users] as UsersDB
+    [Tickets] as TicketsDB
+    [Transactions] as TransactionsDB
+    [Sessions] as SessionsDB
+  }
+}
+
+UI --> Controllers
+State --> UI
+Controllers --> Services
+Services --> Repositories
+Repositories --> UsersDB
+Repositories --> TicketsDB
+Repositories --> TransactionsDB
+Repositories --> SessionsDB
+
+@enduml

@@ -1,0 +1,22 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "nickname": "some nickname",
+  "password": "some password",
+  "displayName": "some displayName",
+  "phone": "some phone",
+  "balanceOnWallet": 8,
+  "avatarId": "00000000-0000-0000-0000-000000000000",
+  "description": "some description",
+  "learn": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "name": "some name"
+    }
+  ],
+  "teach": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "name": "some name"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+-- Добавление пользователей
+INSERT INTO Users (name, email, telegram_id, profile_text, rating, currency_balance) VALUES
+('Иван Иванов', 'ivanov@example.com', 'user001', 'Преподаватель математики', 4.5, 150.00),
+('Мария Петрова', 'mpetrova@example.com', 'user002', 'Студент языковых курсов', 4.8, 200.00);
+
+-- Добавление навыков
+INSERT INTO Skills (skill_name) VALUES
+('Математика'),
+('Программирование'),
+('Английский язык'),
+('Графический дизайн');
+
+-- Добавление объявлений
+INSERT INTO Advertisements (user_id, category, description, ad_type, status) VALUES
+(1, 'Образование', 'Ищу студентов для обучения математике.', 'offer', 'active'),
+(2, 'Языки', 'Хочу научиться программированию.', 'request', 'active');
+
+-- Связь пользователей и навыков
+INSERT INTO User_Skills (user_id, skill_id) VALUES
+(1, 1),
+(2, 3);
+
+-- Связь объявлений и навыков
+INSERT INTO Ad_Skills (ad_id, skill_id) VALUES
+(1, 1),
+(2, 2);
+------------------------------------
+upd
+
+INSERT INTO Users (name, email, telegram_id, profile_text, rating, currency_balance) VALUES
+('Alice Smith', 'alice@example.com', 'alice_telegram', 'Experienced software developer', 4.8, 100.50),
+('Bob Johnson', 'bob@example.com', 'bob_telegram', 'Senior data scientist', 4.5, 200.00),
+('Charlie Brown', 'charlie@example.com', 'charlie_telegram', 'Full-stack web developer', 4.7, 150.75),
+('Diana Prince', 'diana@example.com', 'diana_telegram', 'Graphic designer and artist', 4.9, 300.20),
+('Evan Wright', 'evan@example.com', 'evan_telegram', 'Project manager', 4.6, 50.00);
+
+INSERT INTO Advertisements (user_id, category, description, ad_type, status) VALUES
+(1, 'Software Development', 'Offering lessons on Java and Spring Boot', 'offer', 'active'),
+(2, 'Data Science', 'Looking for lessons on machine learning', 'request', 'active'),
+(3, 'Web Development', 'Offering lessons on React and Node.js', 'offer', 'completed'),
+(4, 'Graphic Design', 'Looking for lessons on Adobe Photoshop', 'request', 'cancelled'),
+(5, 'Project Management', 'Offering lessons on Agile methodologies', 'offer', 'active');
+
+INSERT INTO Sessions (ad_id, session_date, platform) VALUES
+(1, '2024-05-01 10:00:00', 'Zoom'),
+(2, '2024-05-02 11:00:00', 'Google Meet'),
+(3, '2024-05-03 12:00:00', 'Microsoft Teams');
+
+INSERT INTO Transactions (sender_id, receiver_id, amount, transaction_date) VALUES
+(1, 2, 50.00, '2024-05-01 10:15:00'),
+(3, 4, 75.00, '2024-05-02 11:30:00'),
+(2, 5, 100.00, '2024-05-03 12:45:00');
+
+INSERT INTO Reviews (session_id, author_id, rating, comment) VALUES
+(1, 2, 5, 'Excellent lesson, very helpful!'),
+(2, 4, 4, 'Good session, learned a lot.'),
+(3, 1, 3, 'It was okay, but could be better.');
+
+INSERT INTO Skills (skill_name) VALUES
+('Java'),
+('Spring Boot'),
+('Machine Learning'),
+('React'),
+('Node.js'),
+('Adobe Photoshop'),
+('Agile methodologies');
+
+INSERT INTO User_Skills (user_id, skill_id) VALUES
+(1, 1),
+(1, 2),
+(2, 3),
+(3, 4),
+(3, 5),
+(4, 6),
+(5, 7);
+
+INSERT INTO Ad_Skills (ad_id, skill_id) VALUES
+(1, 1),
+(1, 2),
+(2, 3),
+(3, 4),
+(3, 5),
+(4, 6),
+(5, 7);
+
+-- Вставка тестовых данных в таблицу Sessions
+
+TRUNCATE TABLE Users RESTART IDENTITY CASCADE;
+-- Вставка тестовых данных в таблицу Users
+INSERT INTO Users (name, email, telegram_id, profile_text, rating, currency_balance) VALUES
+('Alice', 'alice@example.com', 'alice_telegram', 'Java Developer', 4.5, 100.00),
+('Bob', 'bob@example.com', 'bob_telegram', 'Math Tutor', 4.7, 150.00),
+('Charlie', 'charlie@example.com', 'charlie_telegram', 'Spanish Teacher', 4.8, 120.00);
+
+-- Вставка тестовых данных в таблицу Advertisements
+INSERT INTO Advertisements (user_id, category, description, ad_type, status) VALUES
+(1, 'Programming', 'Learn Java programming', 'offer', 'active'),
+(2, 'Mathematics', 'Tutoring in algebra and calculus', 'offer', 'active'),
+(3, 'Language', 'Spanish language lessons', 'offer', 'active');
+
+-- Вставка тестовых данных в таблицу Sessions
+INSERT INTO Sessions (ad_id, session_date, platform) VALUES
+(1, '2024-05-20 10:00:00', 'Zoom'),
+(2, '2024-05-21 14:00:00', 'Google Meet'),
+(3, '2024-05-22 16:00:00', 'Skype'),
+(1, '2024-05-23 11:00:00', 'Microsoft Teams'),
+(2, '2024-05-24 09:00:00', 'Zoom'),
+(3, '2024-05-25 13:00:00', 'Google Meet'),
+(1, '2024-05-26 15:00:00', 'Skype'),
+(2, '2024-05-27 17:00:00', 'Microsoft Teams'),
+(3, '2024-05-28 12:00:00', 'Zoom'),
+(1, '2024-05-29 14:00:00', 'Google Meet');

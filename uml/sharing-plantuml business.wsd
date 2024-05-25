@@ -1,0 +1,37 @@
+@startuml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+' Регистрация и аутентификация
+participant "Пользователь" as user
+participant "Telegram API" as telegram
+database "База данных" as db
+
+user -> telegram : Регистрация/Аутентификация
+telegram -> db : Сохранение данных пользователя
+
+' Управление профилями
+user -> db : Просмотр профиля
+user -> db : Редактирование профиля
+
+' Создание и управление объявлениями
+user -> db : Создание объявления
+user -> db : Управление объявлением
+
+' Поиск и фильтрация объявлений
+user -> db : Поиск объявлений
+user -> db : Фильтрация объявлений
+
+' Внутренняя валютная система
+participant "Видео сервисы" as video
+user -> db : Начисление валюты
+user -> db : Оплата уроков
+
+' Видео уроки
+user -> video : Подключение к уроку
+video -> user : Трансляция урока
+
+' Система отзывов
+user -> db : Оставление отзыва
+db -> user : Обновление рейтинга
+
+@enduml

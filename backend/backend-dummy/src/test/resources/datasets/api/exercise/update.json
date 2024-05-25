@@ -1,0 +1,49 @@
+{
+  "skill": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "name": "some name"
+    }
+  ],
+  "user_skill": [
+    {
+      "teach_id": "00000000-0000-0000-0000-000000000000",
+      "user_id": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "user": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "nickname": "some nickname",
+      "password": "some password",
+      "display_name": "some displayName",
+      "phone": "some phone",
+      "balance_on_wallet": 8,
+      "avatar_id": "00000000-0000-0000-0000-000000000000",
+      "description": "some description"
+    }
+  ],
+  "announcement": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "title": "some title",
+      "image_id": "00000000-0000-0000-0000-000000000000",
+      "price": 8,
+      "description": "some description",
+      "teacher_id": "00000000-0000-0000-0000-000000000000",
+      "status": "HIDDEN"
+    }
+  ],
+  "exercise": [
+    {
+      "id": "00000000-0000-0000-0000-000000000000",
+      "title": "other title",
+      "description": "other description",
+      "announcement_id": "00000000-0000-0000-0000-000000000000",
+      "teacher_id": "00000000-0000-0000-0000-000000000000",
+      "student_id": "00000000-0000-0000-0000-000000000000",
+      "date": "2021-12-12 10:11:12",
+      "status": "REQUEST"
+    }
+  ]
+}

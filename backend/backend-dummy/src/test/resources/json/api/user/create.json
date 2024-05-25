@@ -1,0 +1,15 @@
+{
+  "nickname": "some nickname",
+  "password": "some password",
+  "displayName": "some displayName",
+  "phone": "some phone",
+  "balanceOnWallet": 8,
+  "avatarId": "00000000-0000-0000-0000-000000000000",
+  "description": "some description",
+  "learnIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "teachIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ]
+}

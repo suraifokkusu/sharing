@@ -1,0 +1,108 @@
+/* src/components/Navbar.css */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 80px;
+  background-color: #ffffff; /* Белый фон */
+  padding: 0 20px; /* Добавляем отступы слева и справа */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Легкая тень для разделения с контентом */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo svg {
+  height: 40px; /* Подстраивайте по необходимости */
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--oxford-blue);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease; /* Переход для цвета */
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px; /* Отступ, чтобы подчеркивание было ниже текста */
+  width: 100%;
+  height: 3px;
+  background-color: var(--bice-blue);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--royal-blue-traditional); /* Более удачная подсветка */
+}
+
+.nav-links a:hover::after {
+  opacity: 1;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-right: 40px; /* Добавляем отступ справа */
+}
+
+.button-registration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  background-color: var(--oxford-blue); 
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-registration:hover {
+  background-color: white; /* Изменение цвета при наведении */
+  color: var(--oxford-blue);
+}
+
+.button-login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 40px;
+  background-color: white;
+  border: none;
+  border-radius: 20px;
+  font-family: var(--font-secondary);
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--oxford-blue);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid var(--oxford-blue);
+}
+
+.button-login:hover {
+  background-color: var(--oxford-blue); /* Изменение цвета при наведении */
+  color: white;
+}

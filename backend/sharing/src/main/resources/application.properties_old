@@ -1,0 +1,24 @@
+spring.application.name=Sharing
+server.port=8080
+spring.datasource.url=jdbc:postgresql://localhost:5432/sharing-db
+spring.datasource.username=postgres
+spring.datasource.password=1111
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+telegram.bot.username=SHARING AUTHENTICATION
+telegram.bot.token=6887257254:AAHJdQwR0fYKGDbqndE2nVnUMmCvJjnH19w
+logging.level.root=INFO
+#spring.profiles.active=no-security
+
+# ????????? Springdoc OpenAPI
+springdoc.api-docs.path=/v3/api-docs
+springdoc.swagger-ui.path=/swagger-ui.html
+
+spring.security.oauth2.client.registration.google.client-id=YOUR_GOOGLE_CLIENT_ID
+spring.security.oauth2.client.registration.google.client-secret=YOUR_GOOGLE_CLIENT_SECRET
+spring.security.oauth2.client.registration.google.scope=profile,email
+spring.security.oauth2.client.registration.google.redirect-uri={baseUrl}/login/oauth2/code/google
+spring.security.oauth2.client.provider.google.authorization-uri=https://accounts.google.com/o/oauth2/auth
+spring.security.oauth2.client.provider.google.token-uri=https://accounts.google.com/o/oauth2/token
+spring.security.oauth2.client.provider.google.user-info-uri=https://www.googleapis.com/oauth2/v3/userinfo
+spring.security.oauth2.client.provider.google.user-name-attribute=sub
